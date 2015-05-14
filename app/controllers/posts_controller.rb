@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 	end
 
 	def new
+		@post = Post.new
 	end
 
 	def create
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
 			redirect_to @post
 			flash.now[:success] = "Post created"
 		else
-			redirect_to "new"
+			render "new"
 		end
 	end
 
